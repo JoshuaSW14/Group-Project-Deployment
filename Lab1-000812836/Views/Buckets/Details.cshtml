@@ -1,0 +1,45 @@
+﻿@model Lab1_TeamMembershipSystem.ViewModels.BucketsDetailsDeleteViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bucket</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bucket.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bucket.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bucket.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bucket.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bucket.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bucket.Price)
+        </dd>
+        <dd class="col-sm-10">
+            <b>Teams</b>
+            <ul>
+                @foreach (var team in Model.Teams)
+                {
+                    <li>@team.Name</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Bucket.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
